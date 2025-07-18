@@ -1,0 +1,175 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body, html {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the page takes full height */
+    color: #e07b66;
+    background: url('pizza.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Blurred Background Overlay */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 200, 150, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 0;
+}
+
+/* Main content container */
+main {
+    flex: 1; /* Takes up remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    z-index: 2;
+}
+
+header nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav a {
+    color: #e07b66;
+    font-size: 16px;
+    text-decoration: none;
+    justify-content: end;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-container .search-icon {
+    color: #e07b66;
+    cursor: pointer;
+}
+
+.icons span {
+    font-size: 24px;
+    margin-left: 15px;
+}
+.cart-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Form Container */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+/* Form Header */
+.form-container h2 {
+    font-size: 24px;
+    color: #e07b66;
+    margin-bottom: 15px;
+}
+
+/* Label Styling */
+.form-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    color: #e07b66;
+    font-size: 14px;
+}
+
+/* Input Fields */
+.form-container input[type="email"],
+.form-container input[type="password"],.form-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Checkbox Styling */
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: #e07b66;
+    margin-bottom: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Button Styling */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e07b66;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #d0675e;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    color: #e07b66;
+    z-index: 2;
+    position: relative;
+}

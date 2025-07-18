@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Serif', serif;
+            background-color: #fffaf3;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: #f8e8df;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #f27457;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, button, .payment-method div {
+            width: 90%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #f27457;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d96349;
+        }
+
+        .payment-method {
+            display: flex;
+            flex-direction: right;
+            gap: 20px;
+        }
+
+        .payment-method label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: normal;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f2a18c;
+            color: white;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+
+        #card-details {
+            display: none;
+        }
+
+        .card-details input {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Details</h2>
+        <form id="payment-form">
+            <!-- User Information -->
+            <div>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div>
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your address" required></textarea>
+            </div>
+
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter your 10-digit phone number" required>
+            </div>
+
+            <!-- Payment Method -->
+            <div>
+                <label>Payment Method</label><br><br>
+                <div class="payment-method">
+                    <label>
+                        <input type="radio" name="payment_method" value="COD" checked> Cash on Delivery
+                    </label><br>
+                    <label>
+                        <input type="radio" name="payment_method" value="Card"> Card Payment
+                    </label>
+                </div>
+            </div>
+
+            <!-- Card Details -->
+            <div id="card-details" class="card-details">
+                <div>
+                    <label for="card-number">Card Number</label><br>
+                    <input type="text" id="card-number" name="card_number" pattern="[0-9]{16}" placeholder="Enter 16-digit card number">
+                </div>
+
+                <div>
+                    <label for="expiry-date">Expiry Date</label><br>
+                    <input type="month" id="expiry-date" name="expiry_date">
+                </div>
+
+                <div>
+                    <label for="cvv">CVV</label> <br>
+                    <input type="password" id="cvv" name="cvv" pattern="[0-9]{3}" placeholder="Enter 3-digit CVV">
+                </div>
+            </div>
+
+            <button type="submit">Confirm Payment</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 The Culinary Canvas. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Card Details Visibility
+        const paymentMethodInputs = document.querySelectorAll('input[name="payment_method"]');
+        const cardDetails = document.getElementById('card-details');
+
+        paymentMethodInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                cardDetails.style.display = input.value === 'Card' ? 'block' : 'none';
+            });
+        });
+
+        // Handle Form Submission
+        const form = document.getElementById('payment-form');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            if (data.payment_method === 'Card' && (!data.card_number || !data.expiry_date || !data.cvv)) {
+                alert('Please fill in all card details.');
+                return;
+            }
+
+            console.log('Payment Data:', data);
+            alert(`Payment Confirmed!\nName: ${data.name}\nAddress: ${data.address}\nPhone: ${data.phone}\nPayment Method: ${data.payment_method}`);
+        });
+    </script>
+</body>
+</html>

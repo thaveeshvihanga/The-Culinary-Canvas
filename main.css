@@ -1,0 +1,134 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Container */
+.main-container {
+    width: 100%;
+    height: 1333px;
+    background: rgba(255, 85, 85, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+/* Background Layer */
+.background-layer {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 230, 212, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Image Overlay */
+.image-overlay {
+    width: 100%;
+    height: 100%;
+    background: url("v102_242.png") center center / cover no-repeat;
+    opacity: 0.04;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.background-layer {
+    width: 100%;
+    height: 100%; /* Ensure this scales proportionally */
+}
+
+.image-overlay {
+    width: 100%;
+    height: 100%; /* Ensure this scales proportionally */
+    background-size: cover; /* Prevent distortion */
+}
+
+/* Menu Bar */
+.menu-bar {
+    width: 764px;
+    height: 48px;
+    background: url("v102_243.png") center center / cover no-repeat;
+    position: absolute;
+    top: 58px;
+    left: 624px;
+}
+
+.menu-item {
+    color: #fff;
+}
+
+
+/* Featured Image */
+.featured-image {
+    width: 646px;
+    height: 478px;
+    background: url("v102_250.png") center center / cover no-repeat;
+    position: static;
+    top: 250px;
+    left: 639px;
+    border-radius: 1px;
+}
+
+/* Highlight Section */
+.highlight-section {
+    width: 914px;
+    height: 437px;
+    background: url("v102_251.png") center center / cover no-repeat;
+    position: static;
+    top: 400px;
+    left: 191px;
+}
+
+/* Titles and Text */
+.title {
+    width: 705px;
+    color: #ff5555;
+    position: static;
+    top: 140px;
+    left: 131px;
+    font-family: 'Noto Serif', serif;
+    font-weight: bold;
+    font-size: 96px;
+    text-align: left;
+}
+
+
+.aboutus-title {
+    width: 500px;
+    color: rgba(0, 0, 0, 1);
+    position: static;
+    top: 800px;
+    left: 450px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Noto Serif', serif;
+    font-size: 14px;
+    text-align: center;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit;        
+}
+
+.menu-title {
+    width: 765px;
+    color: rgba(0, 0, 0, 1);
+    position: static;
+    top: 850px;
+    left: 340px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 100px;
+    text-align: center;
+}
+
